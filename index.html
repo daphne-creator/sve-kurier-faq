@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboarding Kurier SVE &middot; Pilih Bahagian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+  :root {
+    --bg: #FAF7F3;
+    --surface: #FFFFFF;
+    --surface-alt: #F3EEE8;
+    --text: #241E1A;
+    --text-muted: #776D64;
+    --border: #E9E1D6;
+    --accent: #D74C25;
+    --accent-strong: #B93E1C;
+    --accent-soft: #FBE7DC;
+    --accent-contrast: #FFFFFF;
+    --shadow: 0 1px 2px rgba(36, 30, 26, 0.04), 0 8px 24px -12px rgba(36, 30, 26, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17130F; --surface: #201A15; --surface-alt: #29221B; --text: #F3ECE3;
+      --text-muted: #B5A99B; --border: #3A2F25; --accent: #FF7C48; --accent-strong: #FF9668;
+      --accent-soft: #3D2618; --accent-contrast: #1A1109;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .display { font-family: "Sora", "Inter", system-ui, sans-serif; text-wrap: balance; margin: 0; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 18px;
+  }
+  .back-link:hover { color: var(--accent-strong); }
+  .eyebrow {
+    display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 14px;
+  }
+  .eyebrow .mark {
+    width: 20px; height: 20px; border-radius: 6px; background: var(--accent); color: var(--accent-contrast);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Sora", sans-serif; font-weight: 800; font-size: 12px; flex: none;
+  }
+  h1.title { font-size: clamp(26px, 6vw, 34px); font-weight: 800; letter-spacing: -0.01em; }
+  .subtitle { color: var(--text-muted); font-size: 15.5px; margin-top: 10px; max-width: 58ch; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+  @media (min-width: 560px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .role-card {
+    display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); padding: 20px; text-decoration: none; color: var(--text); position: relative;
+  }
+  .role-card .role-name { font-family: "Sora", sans-serif; font-weight: 700; font-size: 18px; }
+  .role-card .role-desc { color: var(--text-muted); font-size: 13.5px; margin-top: 6px; }
+  .role-card .arrow {
+    position: absolute; top: 20px; right: 18px; width: 20px; height: 20px; color: var(--accent-strong);
+  }
+  .role-card.disabled {
+    opacity: 0.55; cursor: default; pointer-events: none;
+  }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em;
+    padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-strong);
+    margin-top: 10px;
+  }
+  .badge.soon { background: var(--surface-alt); color: var(--text-muted); }
+  footer {
+    max-width: 720px; margin: 48px auto 0; padding: 20px 20px 0; border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: 12.5px; line-height: 1.6;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow"><span class="mark">S</span> Rujukan Dalaman &middot; Onboarding Kurier SVE</div>
+  <h1 class="title">Pilih bahagian kurier</h1>
+  <p class="subtitle">Pilih bahagian calon kurier untuk lihat soalan lazim onboarding &mdash; log masuk, SOP, kod pakaian, gaji, denda dan maklumat hubungan berkaitan. Last Mile dihoskan di tapak berasingan (lastmile-kurier-faq).</p>
+
+  <div class="grid">
+      <a class="role-card" href="https://lastmile-kurier-faq.vercel.app/" target="_blank" rel="noopener">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        <div class="role-name">Last Mile (LM)</div>
+        <div class="role-desc">SOP penghantaran, COD, ePOD, denda, gaji &amp; tuntutan minyak &mdash; LM-FT dan LM-PT. Dihoskan di tapak berasingan.</div>
+        <span class="badge">Tapak berasingan &rarr;</span>
+      </a>
+      <a class="role-card" href="fm.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        <div class="role-name">First Mile (FM)</div>
+        <div class="role-desc">Log masuk, aliran kerja pengambilan (PU &rarr; PUP &rarr; hub/SOC), kod pakaian, gaji.</div>
+        <span class="badge">Sedia digunakan</span>
+      </a>
+      <div class="role-card disabled">
+        
+        <div class="role-name">Kelindan</div>
+        <div class="role-desc">Akan datang &mdash; handbook belum tersedia.</div>
+        <span class="badge soon">Akan datang</span>
+      </div>
+      <div class="role-card disabled">
+        
+        <div class="role-name">Linehaul (LH)</div>
+        <div class="role-desc">Akan datang &mdash; handbook belum tersedia.</div>
+        <span class="badge soon">Akan datang</span>
+      </div>
+  </div>
+</div>
+
+<footer>
+  Rujukan ini disediakan untuk membantu recruiter menerangkan onboarding kepada calon kurier secara ringkas. Untuk butiran penuh dan terkini, sila rujuk handbook rasmi SPX Express atau supervisor hub. Kemas kini terakhir: 28 Ogos 2026.
+</footer>
+
+</body>
+</html>

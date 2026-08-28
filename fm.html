@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboarding Kurier FM · SPX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+  :root {
+    --bg: #FAF7F3;
+    --surface: #FFFFFF;
+    --surface-alt: #F3EEE8;
+    --text: #241E1A;
+    --text-muted: #776D64;
+    --border: #E9E1D6;
+    --accent: #D74C25;
+    --accent-strong: #B93E1C;
+    --accent-soft: #FBE7DC;
+    --accent-contrast: #FFFFFF;
+    --focus: #1B6EE8;
+    --shadow: 0 1px 2px rgba(36, 30, 26, 0.04), 0 8px 24px -12px rgba(36, 30, 26, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17130F;
+      --surface: #201A15;
+      --surface-alt: #29221B;
+      --text: #F3ECE3;
+      --text-muted: #B5A99B;
+      --border: #3A2F25;
+      --accent: #FF7C48;
+      --accent-strong: #FF9668;
+      --accent-soft: #3D2618;
+      --accent-contrast: #1A1109;
+      --focus: #6FA8FF;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #17130F;
+    --surface: #201A15;
+    --surface-alt: #29221B;
+    --text: #F3ECE3;
+    --text-muted: #B5A99B;
+    --border: #3A2F25;
+    --accent: #FF7C48;
+    --accent-strong: #FF9668;
+    --accent-soft: #3D2618;
+    --accent-contrast: #1A1109;
+    --focus: #6FA8FF;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display {
+    font-family: "Sora", "Inter", system-ui, sans-serif;
+    text-wrap: balance;
+    margin: 0;
+  }
+  a { color: var(--accent-strong); }
+  :root:not([data-theme="light"]) a { color: var(--accent-strong); }
+  ::selection { background: var(--accent-soft); }
+  *:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 96px;
+  }
+
+  header.top {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .top-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 22px 20px 16px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 14px;
+  }
+  .back-link:hover { color: var(--accent-strong); }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin-bottom: 10px;
+  }
+  .eyebrow .mark {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Sora", sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    flex: none;
+  }
+  h1.title {
+    font-size: clamp(24px, 5.5vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-top: 8px;
+    max-width: 56ch;
+  }
+  .pdf-row {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface-alt);
+    color: var(--text);
+    text-decoration: none;
+  }
+  .pdf-btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
+  }
+  .search-row { margin-top: 18px; position: relative; }
+  .search-row svg {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted); pointer-events: none;
+  }
+  #search {
+    width: 100%; font: inherit; font-size: 15px;
+    padding: 12px 14px 12px 40px; border-radius: 12px;
+    border: 1px solid var(--border); background: var(--surface-alt); color: var(--text);
+  }
+  #search::placeholder { color: var(--text-muted); }
+  .pills {
+    display: flex; gap: 8px; overflow-x: auto; padding: 14px 20px 16px;
+    max-width: 720px; margin: 0 auto; scrollbar-width: none;
+  }
+  .pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex: none; font-family: "Inter", sans-serif; font-size: 13.5px; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-muted); cursor: pointer; white-space: nowrap;
+  }
+  .pill[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+
+  main { padding-top: 28px; }
+  .result-count { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+  .category { margin-bottom: 34px; }
+  .category-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+  .category-head .num {
+    font-family: "Sora", sans-serif; font-weight: 700; font-size: 13px; color: var(--accent-strong);
+    background: var(--accent-soft); border-radius: 6px; padding: 2px 7px;
+  }
+  .category-head h2 { font-size: 17px; font-weight: 700; }
+  .qa-list { display: flex; flex-direction: column; gap: 10px; }
+  .qa-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .qa-item[hidden] { display: none; }
+  .qa-item button.q {
+    width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+    font-family: "Inter", sans-serif; font-size: 15px; font-weight: 600; color: var(--text);
+    background: none; border: none; padding: 15px 16px; cursor: pointer;
+  }
+  .qa-item button.q .chev {
+    margin-left: auto; flex: none; width: 18px; height: 18px; color: var(--text-muted);
+    transition: transform 0.2s ease;
+  }
+  .qa-item[data-open="true"] button.q .chev { transform: rotate(180deg); }
+  .qa-item .a-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.24s ease; }
+  .qa-item[data-open="true"] .a-wrap { grid-template-rows: 1fr; }
+  .qa-item .a-inner { overflow: hidden; }
+  .qa-item .a { padding: 0 16px 17px 16px; color: var(--text); font-size: 14.5px; }
+  .qa-item .a p { margin: 0 0 10px; }
+  .qa-item .a p:last-child { margin-bottom: 0; }
+  .qa-item .a ul, .qa-item .a ol { margin: 8px 0 10px; padding-left: 20px; }
+  .qa-item .a li { margin-bottom: 5px; }
+  .qa-item .a strong { color: var(--text); }
+  .qa-item .a .tag {
+    display: inline-block; font-size: 12.5px; font-weight: 600; padding: 1px 8px;
+    border-radius: 999px; background: var(--accent-soft); color: var(--accent-strong);
+  }
+  .mini-table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 13.5px; }
+  .mini-table th, .mini-table td {
+    text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  .mini-table th {
+    color: var(--text-muted); font-weight: 600; font-size: 12.5px;
+    text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .table-scroll { overflow-x: auto; }
+  .warn-box {
+    background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 8px;
+    padding: 10px 12px; margin: 10px 0; font-size: 13.5px;
+  }
+  .no-results { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+  .no-results[hidden] { display: none; }
+  footer {
+    max-width: 720px; margin: 40px auto 0; padding: 20px 20px 0; border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: 12.5px; line-height: 1.6;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .qa-item .a-wrap, .qa-item button.q .chev { transition: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="back-link" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Kembali ke Onboarding SVE</a>
+    <div class="eyebrow"><span class="mark">S</span> Onboarding · Kurier FM (First Mile)</div>
+    <h1 class="title">Soalan Lazim Onboarding FM</h1>
+    <p class="subtitle">Rujukan pantas untuk recruiter terangkan onboarding kepada calon pemandu First Mile &mdash; log masuk, aliran kerja pengambilan, kod pakaian, gaji dan maklumat hubungan.</p>
+    <div class="pdf-row">
+      <a class="pdf-btn primary" href="handbooks/fm.pdf" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> Muat Turun Handbook Penuh (PDF)</a>
+
+    </div>
+    <div class="search-row">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="search" type="text" placeholder="Cari soalan..." autocomplete="off">
+    </div>
+  </div>
+  <nav class="pills" id="pills" aria-label="Tapis ikut kategori"></nav>
+</header>
+
+<div class="wrap">
+  <main>
+    <p class="result-count" id="resultCount"></p>
+    <div id="categories"></div>
+    <div class="no-results" id="noResults" hidden>Tiada soalan sepadan. Cuba kata kunci lain.</div>
+  </main>
+
+  <footer>
+    Rujukan ini disediakan untuk membantu recruiter menerangkan onboarding kepada calon kurier secara ringkas. Untuk butiran penuh dan terkini, sila rujuk handbook rasmi SPX Express atau supervisor hub. Kemas kini terakhir: 28 Ogos 2026.
+  </footer>
+</div>
+
+<script>
+  const DATA = [
+      {
+        id: "log-masuk",
+        title: "Cara Log Masuk",
+        items: [
+        { q: `Bagaimana cara kurier FM log masuk ke Driver App kali pertama?`, a: `<ol>
+                        <li>Muat turun aplikasi <strong>SPX</strong>, buka dan pilih <strong>Log In</strong>.</li>
+                        <li>Masukkan nombor telefon &mdash; klik <strong>Next</strong>.</li>
+                        <li>Masukkan kod pengesahan (captcha) yang dipaparkan.</li>
+                        <li>Pastikan <strong>WhatsApp</strong> dipilih sebagai kaedah untuk menerima kod OTP &mdash; klik OK.</li>
+                        <li>Masukkan kod OTP 6 digit yang diterima melalui WhatsApp.</li>
+                        <li>Tetapkan <strong>kata laluan baharu</strong> (8-20 aksara, mengandungi huruf besar, huruf kecil, nombor &amp; aksara khas) &mdash; klik OK.</li>
+                        <li>Selepas kata laluan disimpan, log masuk semula menggunakan kata laluan baharu tersebut.</li>
+                      </ol>` },
+        { q: `Bolehkah kurier kongsi ID atau kata laluan Driver App dengan orang lain?`, a: `<p><strong>Tidak, sama sekali dilarang.</strong> Kurier tidak dibenarkan berkongsi atau memberi akses ID mereka kepada sesiapa pun.</p>
+                      <p>Sebarang perkongsian butiran log masuk boleh dikenakan tindakan tatatertib &mdash; sehingga dan termasuk <strong>penamatan perkhidmatan</strong>.</p>` },
+        { q: `Adakah kurier FM wajib rakam waktu masuk (clock-in)?`, a: `<p>Ya. Pemandu diwajibkan untuk merakam waktu masuk (clock-in) di dalam app &mdash; sama ada di rumah atau semasa menghidupkan kenderaan &mdash; sebagai tanda pemandu melapor diri untuk bertugas pada hari tersebut.</p>
+                      <p>Penyelia akan memantau kehadiran pemandu bagi setiap syif dan pasukan masing-masing.</p>` }
+        ]
+      },
+      {
+        id: "aliran",
+        title: "Aliran Kerja Pengambilan (First Mile)",
+        items: [
+        { q: `Apakah aliran kerja asas kurier First Mile (pengambilan barang)?`, a: `<ol>
+                        <li><strong>Terima dan susun</strong> semua tugasan pengambilan (PU) yang diberikan.</li>
+                        <li><strong>Mulakan proses pengambilan</strong> dari semua titik pengambilan (PUP) mengikut laluan yang dirancang.</li>
+                        <li><strong>Pergi ke titik pengambilan (PUP) seterusnya</strong> / hantar ke hub atau pusat pengisihan (SOC) yang ditetapkan.</li>
+                      </ol>
+                      <p>Aliran kerja ini boleh berubah bergantung pada penjadualan pengurus hub masing-masing.</p>` }
+        ]
+      },
+      {
+        id: "pakaian",
+        title: "Kod Pakaian",
+        items: [
+        { q: `Apakah kod pakaian yang wajib dipatuhi kurier semasa bertugas?`, a: `<ul>
+            <li>Baju berlengan (dengan lengan baju)</li>
+            <li>Seluar panjang</li>
+            <li>Kasut bertutup</li>
+          </ul>
+          <p>Bagi rider yang ingin membeli kurier bag, sila hubungi agensi masing-masing.</p>
+          <div class="warn-box"><strong>Pakaian tidak sesuai:</strong> Kali pertama &mdash; amaran lisan. Kali kedua ke atas &mdash; surat amaran.</div>` }
+        ]
+      },
+      {
+        id: "gaji",
+        title: "Sistem Penggajian",
+        items: [
+        { q: `Bagaimana sistem gaji harian (daily) berfungsi untuk kurier FM?`, a: `<p>Gaji harian dibayar 7 hari selepas hari bekerja &mdash; contoh: 8 Mei = bayaran untuk kerja pada 1 Mei, 9 Mei = bayaran untuk kerja pada 2 Mei, dan seterusnya.</p>
+              <ul>
+                <li><strong>RM40</strong> akan dipindahkan ke akaun bank setiap hari bekerja yang sah.</li>
+                <li>Ampay mengenakan caj pengeluaran <strong>RM4</strong> setiap transaksi.</li>
+                <li>Bighire menanggung <strong>RM2</strong> daripada caj RM4 tersebut &mdash; kurier hanya perlu tanggung <strong>RM2</strong> sahaja setiap transaksi.</li>
+              </ul>` },
+        { q: `Bagaimana sistem gaji bulanan (monthly) dan gaji awal berfungsi untuk FM?`, a: `<p>Gaji bulanan dibayar pada setiap <strong>7haribulan</strong>.</p>
+              <ul>
+                <li>Semua kurier dibenarkan meminta <strong>gaji awal</strong> (advance).</li>
+                <li>Caj pemprosesan <strong>10%</strong> dikenakan untuk setiap permintaan pengeluaran gaji awal.</li>
+                <li>Jika bank menolak bayaran pada 7hb, bayaran akan dibawa ke 8hb; jika ditolak lagi, dibawa ke 15hb.</li>
+                <li>Kurier yang terlibat dalam isu COD atau QA/QC &mdash; <strong>semua gaji akan ditahan</strong> sehingga kes diselesaikan.</li>
+              </ul>` }
+        ]
+      },
+      {
+        id: "kontak",
+        title: "Maklumat Hubungan",
+        items: [
+        { q: `Siapa yang perlu dihubungi untuk isu kontrak, gaji, atau perekrutan (FM)?`, a: `<div class="table-scroll"><table class="mini-table">
+                <tr><th>Perkara</th><th>Nama</th><th>No. Telefon/WhatsApp</th></tr>
+                <tr><td>Perekrutan, Contract &amp; Admin</td><td>Dayah</td><td>60147589276</td></tr>
+                <tr><td>Gaji &amp; Gaji Awal</td><td>Lai Kuan</td><td>60102263595</td></tr>
+                <tr><td>Perekrutan, Contract &amp; Admin</td><td>Hani</td><td>60177178154</td></tr>
+                <tr><td>Perekrutan, Contract &amp; Admin</td><td>Yaya</td><td>60165171390</td></tr>
+              </table></div>` }
+        ]
+      }
+  ];
+
+  const pillsEl = document.getElementById('pills');
+  const categoriesEl = document.getElementById('categories');
+  const resultCountEl = document.getElementById('resultCount');
+  const noResultsEl = document.getElementById('noResults');
+  const searchEl = document.getElementById('search');
+
+  let activeCat = 'all';
+  let searchText = '';
+
+  function renderPills() {
+    const allBtn = document.createElement('button');
+    allBtn.className = 'pill';
+    allBtn.textContent = 'Semua';
+    allBtn.dataset.cat = 'all';
+    allBtn.setAttribute('aria-pressed', 'true');
+    pillsEl.appendChild(allBtn);
+
+    DATA.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'pill';
+      btn.textContent = cat.title;
+      btn.dataset.cat = cat.id;
+      btn.setAttribute('aria-pressed', 'false');
+      pillsEl.appendChild(btn);
+    });
+
+    pillsEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pill');
+      if (!btn) return;
+      setCategory(btn.dataset.cat);
+    });
+  }
+
+  function setCategory(id) {
+    activeCat = id;
+    [...pillsEl.children].forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.dataset.cat === id ? 'true' : 'false');
+    });
+    applyFilter();
+  }
+
+  function renderCategories() {
+    categoriesEl.innerHTML = '';
+    DATA.forEach((cat, idx) => {
+      const catEl = document.createElement('div');
+      catEl.className = 'category';
+      catEl.dataset.cat = cat.id;
+
+      const head = document.createElement('div');
+      head.className = 'category-head';
+      head.innerHTML = `<span class="num">${String(idx + 1).padStart(2, '0')}</span><h2>${cat.title}</h2>`;
+      catEl.appendChild(head);
+
+      const list = document.createElement('div');
+      list.className = 'qa-list';
+
+      cat.items.forEach((item, i) => {
+        const qa = document.createElement('div');
+        qa.className = 'qa-item';
+        qa.dataset.open = 'false';
+        qa.dataset.q = item.q.toLowerCase();
+        qa.dataset.a = item.a.toLowerCase().replace(/<[^>]*>/g, '');
+
+        const btnId = `q-${cat.id}-${i}`;
+        qa.innerHTML = `
+          <button class="q" aria-expanded="false" id="${btnId}">
+            <span>${item.q}</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="a-wrap">
+            <div class="a-inner">
+              <div class="a">${item.a}</div>
+            </div>
+          </div>`;
+
+        const btn = qa.querySelector('button.q');
+        btn.addEventListener('click', () => {
+          const isOpen = qa.dataset.open === 'true';
+          qa.dataset.open = isOpen ? 'false' : 'true';
+          btn.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        list.appendChild(qa);
+      });
+
+      catEl.appendChild(list);
+      categoriesEl.appendChild(catEl);
+    });
+  }
+
+  function applyFilter() {
+    let visibleCount = 0;
+    let anyCatVisible = false;
+
+    document.querySelectorAll('.category').forEach(catEl => {
+      const catId = catEl.dataset.cat;
+      const catMatches = activeCat === 'all' || activeCat === catId;
+      let catHasVisible = false;
+
+      catEl.querySelectorAll('.qa-item').forEach(qa => {
+        const textMatches = !searchText || qa.dataset.q.includes(searchText) || qa.dataset.a.includes(searchText);
+        const visible = catMatches && textMatches;
+        qa.hidden = !visible;
+        if (visible) {
+          visibleCount++;
+          catHasVisible = true;
+        }
+      });
+
+      catEl.hidden = !catHasVisible;
+      if (catHasVisible) anyCatVisible = true;
+    });
+
+    noResultsEl.hidden = anyCatVisible;
+    resultCountEl.textContent = visibleCount === 0 ? '' : `${visibleCount} soalan dipaparkan`;
+  }
+
+  renderPills();
+  renderCategories();
+  applyFilter();
+
+  searchEl.addEventListener('input', (e) => {
+    searchText = e.target.value.trim().toLowerCase();
+    applyFilter();
+  });
+</script>
+
+</body>
+</html>
